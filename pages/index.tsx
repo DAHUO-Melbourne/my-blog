@@ -30,3 +30,9 @@ export default Home;
  * 而且引入样式可以使用：import styles from './index.module.scss';， 然后styles.类名来使用
  * 第三个知识点：Link组件是nextjs提供的导航工具
  */
+
+/**
+ * 3-3
+ * 第一个知识点：在scss里引入样式：@import 'antd/dist/antd.css'
+ * 第二个知识点，使用useRouter来获取当前的路径, 使用const { pathname } = useRouter();来获取路径名
+ */
