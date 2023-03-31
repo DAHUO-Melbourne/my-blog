@@ -22,3 +22,9 @@ export default Home;
  * pages/[username]/settings.js 那么就是首项(pages与settings中间这一项)的值是动态的：/:username/settings(/foo/settings)
  * pages/post/[...all].js，带...就意思是后面是什么值，几级路由都可以匹配(上面两项只能匹配一级的路由)：/post/2020/id/title
  */
+
+/**
+ * 3-2
+ * 第一个知识点：alias配置路径：在tsconfig里配置baseurl从而不需要再走相对路径这种'../'来往层级外面找文件夹了。
+ * 第二个知识点：
+ */
