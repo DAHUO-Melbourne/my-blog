@@ -26,5 +26,7 @@ export default Home;
 /**
  * 3-2
  * 第一个知识点：alias配置路径：在tsconfig里配置baseurl从而不需要再走相对路径这种'../'来往层级外面找文件夹了。
- * 第二个知识点：
+ * 第二个知识点：scss文件的文件名带module的话就意味着他这对当前模块生效因为build之后会有一段hash tag，所以一定不会出现对全局生效的情况
+ * 而且引入样式可以使用：import styles from './index.module.scss';， 然后styles.类名来使用
+ * 第三个知识点：Link组件是nextjs提供的导航工具
  */
