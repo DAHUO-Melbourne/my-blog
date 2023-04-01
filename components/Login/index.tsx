@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import React, { useState, ChangeEvent } from 'react';
 import styles from './index.module.scss';
+import CountDown from '../CountDown';
 
 interface LoginProps {
   isShow: boolean;
@@ -15,7 +16,11 @@ const Login: NextPage<LoginProps> = ({
     phone: '',
     verify: '',
   });
-  const handleGetVerifyCode = () => {};
+
+  const [isShowVerificationCode, setIsShowVerificationCode] = useState(false);
+  const handleGetVerifyCode = () => {
+    setIsShowVerificationCode(true);
+  };
 
   const handleOAuthGithub = () => {};
 
@@ -25,6 +30,10 @@ const Login: NextPage<LoginProps> = ({
       ...form,
       [name]: value,
     });
+  };
+
+  const handleCountdownEnd = () => {
+    setIsShowVerificationCode(false);
   };
 
   const handleLogin = () => {};
@@ -53,7 +62,11 @@ const Login: NextPage<LoginProps> = ({
             onChange={handleFormChange}
           />
           <span className={styles.verifyCode} onClick={handleGetVerifyCode}>
-            get verify code
+            {isShowVerificationCode ? (
+              <CountDown time={10} onEnd={handleCountdownEnd} />
+            ) : (
+              'get verify code'
+            )}
           </span>
         </div>
         <div className={styles.loginBtn} onClick={handleLogin}>

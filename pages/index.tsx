@@ -53,3 +53,12 @@ export default Home;
     });
     第三个知识点： css嵌套选择器应该意思就是子组件选择器
  */
+
+/**
+ * 4-4
+ * 知识点：
+ * setState可以传入回调函数来拿到最新的state的值：
+ * setCount((count) => {
+        return count - 1;
+   });
+ */
