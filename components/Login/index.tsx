@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import styles from './index.module.scss';
 
 interface LoginProps {
@@ -19,6 +19,14 @@ const Login: NextPage<LoginProps> = ({
 
   const handleOAuthGithub = () => {};
 
+  const handleFormChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
   const handleLogin = () => {};
   return isShow ? (
     <div className={styles.loginArea}>
@@ -34,6 +42,7 @@ const Login: NextPage<LoginProps> = ({
           type="text"
           placeholder="please input phone number"
           value={form.phone}
+          onChange={handleFormChange}
         />
         <div className={styles.verifyCodeArea}>
           <input
@@ -41,6 +50,7 @@ const Login: NextPage<LoginProps> = ({
             type="text"
             placeholder="please input verify code"
             value={form.verify}
+            onChange={handleFormChange}
           />
           <span className={styles.verifyCode} onClick={handleGetVerifyCode}>
             get verify code

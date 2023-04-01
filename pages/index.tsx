@@ -36,3 +36,20 @@ export default Home;
  * 第一个知识点：在scss里引入样式：@import 'antd/dist/antd.css'
  * 第二个知识点，使用useRouter来获取当前的路径, 使用const { pathname } = useRouter();来获取路径名
  */
+
+/**
+ * 4-3
+ * 第一个知识点： 居中的一种写法：
+ *  position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ * 第二个知识点：input的属性是有name的，那么在e.target就可以既拿到value也可以拿到name。
+    其中一个可以利用的办法是：将field设置为name一样的值，这样就可以：
+    const { name, value } = e?.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+    第三个知识点： css嵌套选择器应该意思就是子组件选择器
+ */
