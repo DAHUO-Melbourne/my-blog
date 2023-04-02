@@ -97,3 +97,16 @@ export default Home;
     data: '123'
   })
 */
+
+/**
+ * 4-7
+ * 第一个知识点：
+ * ts类型：NextApiRequest/NextApiResponse，可以赋值给req和res两种数组
+ * 第二个知识点：
+ * es6的语法：appId: appId可以直接写城appId
+ * {
+    to,
+    templateId,
+    appId
+   }
+ */

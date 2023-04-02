@@ -21,12 +21,22 @@ const Login: NextPage<LoginProps> = ({
 
   const [isShowVerificationCode, setIsShowVerificationCode] = useState(false);
   const handleGetVerifyCode = () => {
-    setIsShowVerificationCode(true);
     if (!form.phone) {
       message.warning('Please input phone number');
       return;
     }
-    request.post('/api/user/sendVerifyCode');
+    request
+      .post('/api/user/sendVerifyCode', {
+        to: form.phone,
+        templateId: 1,
+      })
+      .then((res: any) => {
+        if (res?.code === 0) {
+          setIsShowVerificationCode(true);
+        } else {
+          message.error(res?.msg ?? 'unknown error');
+        }
+      });
   };
 
   const handleOAuthGithub = () => {};
