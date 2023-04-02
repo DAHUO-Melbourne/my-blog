@@ -2,6 +2,8 @@ import { NextPage } from 'next';
 import React, { useState, ChangeEvent } from 'react';
 import styles from './index.module.scss';
 import CountDown from '../CountDown';
+import { message } from 'antd';
+import request from 'service/fetch';
 
 interface LoginProps {
   isShow: boolean;
@@ -20,6 +22,11 @@ const Login: NextPage<LoginProps> = ({
   const [isShowVerificationCode, setIsShowVerificationCode] = useState(false);
   const handleGetVerifyCode = () => {
     setIsShowVerificationCode(true);
+    if (!form.phone) {
+      message.warning('Please input phone number');
+      return;
+    }
+    request.post('/api/user/sendVerifyCode');
   };
 
   const handleOAuthGithub = () => {};

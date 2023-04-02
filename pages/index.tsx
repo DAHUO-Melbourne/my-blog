@@ -62,3 +62,38 @@ export default Home;
         return count - 1;
    });
  */
+
+/**
+* 4-5
+第一个知识点：
+  axios实例request的方法(fetch文件)：
+  axios.create({
+    baseURL: '/',
+  });
+  requestInstance.interceptors.request.use(
+    (config) => config,
+    (error) => Promise.reject(error),
+  );
+  requestInstance.interceptors.response.use(response => {
+    if (response?.status === 200) {
+      return response?.data
+    } else {
+      return {
+        code: -1,
+        msg: 'unknown error',
+        data: null,
+      }
+    }
+  }), (error: any) => Promise.reject(error);
+  来配置axios的request实例。导出以后，引入，然后直接request.post就可以使用封装好的axios了
+
+  第二个知识点：
+  request的url路由，和文件路径是一样的，比如说：
+  request.post('/api/user/sendVerifyCode');
+  那么就在文件夹api/user下面新建一个文件叫sendVerifyCode，然后在文件里导出一个函数/return promise出来
+  但是返回的格式必须是：
+  res.status(200).json({
+    code: 0,
+    data: '123'
+  })
+*/
